@@ -36,7 +36,10 @@ for i in range(len(income)):
     if gender[i] == 1:
         female_incomes.append(income[i])
 
+var_female = np.var(female_incomes)
+var_male = np.var(male_incomes)
 
-
+mean_female = np.mean(female_incomes)
+mean_male = np.mean(male_incomes)
 
 
