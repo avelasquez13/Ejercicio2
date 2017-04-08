@@ -5,6 +5,7 @@ import seaborn as sns
 from sklearn import cross_validation
 from sklearn import preprocessing
 from sklearn import linear_model
+import scipy
 
 data = pd.read_csv('http://www-bcf.usc.edu/~gareth/ISL/Credit.csv', index_col=0)
 
@@ -38,4 +39,9 @@ var_male = np.var(male_incomes)
 mean_female = np.mean(female_incomes)
 mean_male = np.mean(male_incomes)
 
+
+print "p-value de que las varianzas son iguales:", scipy.stats.levene(female_incomes, male_incomes)[1]
+print "Como p-value >> 0.05, no rechazamos la hipotesis de que las varianzas son iguales y podemos usar un ttest para evaluar diferencia de medias"
+print "p-value de que las medias son iguales (asumiendo varianzas iguales):", scipy.stats.ttest_ind(female_incomes, male_incomes)[1]
+print "como p-value >> 0.05, no rechazamos la hipotesis de que los promedios son iguales, entonces no hay diferencia en income entre hombres y mujeres"
 
