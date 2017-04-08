@@ -15,10 +15,6 @@ X_N=X['Income']
 X_G=X['Gender'].values
 trainG=[]
 
-#linreg=linear_model.LinearRegression()
-#linreg.fit(X_N,Y)
-#print(linreg.coef_)
-
 for i in range(len(X_G)):
     if X_G[i]==' Male':
         trainG.append(0)
